@@ -2,8 +2,8 @@ import { useState, useRef } from 'react'
 import './App.css';
 import './styles/Chat.css'
 import { Auth } from './components/Auth';
-
 import Cookies from 'universal-cookie'
+import { Chat } from './components/Chat';
 const cookies = new Cookies();
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
   if(!isAuth) {
     return (
       <div>
-        <Auth/>
+        <Auth setIsAuth={setIsAuth}/>
       </div>
     );
   }
@@ -24,7 +24,7 @@ function App() {
   return (
   <div>
     {room ? (
-      <div> Chat</div>
+      <Chat></Chat>
     ) : (
       <div className='room'>
         <label>Enter Room Name:</label>
